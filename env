@@ -1,0 +1,8 @@
+# Backend Configuration
+PORT=8000
+# Replace this with your complete API key from https://platform.openai.com/account/api-keys
+# The key should be about 51 characters long and start with 'sk-'
+OPENAI_API_KEY=sk-
+
+# Frontend Configuration
+VITE_BACKEND_URL=http://localhost:8000
