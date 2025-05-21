@@ -1,121 +1,87 @@
-# QuizBot - AI-Powered Quiz Application
+# AI Quiz Chatbot
 
-A quiz application powered by OpenAI, built using React for the front-end, Express.js for the backend, Axios for handling API requests, and OpenAI's API for generating quiz questions.
+An interactive AI-powered quiz chatbot built with React, Node.js, and OpenAI's GPT-3.5. The chatbot generates dynamic quiz questions on various programming topics and provides immediate feedback with explanations.
 
 ## Features
 
-- **AI-Powered Questions**: Fetch quiz questions dynamically from OpenAI's API.
-- **User Interaction**: Allows users to answer questions in a clean, interactive UI.
-- **Responsive Design**: Built with Tailwind CSS for a modern, responsive design.
-- **Backend**: Express.js handles the server-side logic and OpenAI API requests.
-- **API Integration**: Axios is used for frontend-backend communication, making it easy to fetch quiz questions.
+- Dynamic quiz generation using OpenAI's GPT-3.5
+- Multiple-choice questions with immediate feedback
+- Timer for each question
+- Score tracking
+- Topic selection (JavaScript, React, HTML, CSS)
+- Modern, responsive UI with animations
+- Detailed explanations for correct/incorrect answers
 
-## Project Setup
+## Tech Stack
 
-### Prerequisites
+- Frontend:
+  - React
+  - Framer Motion (animations)
+  - Tailwind CSS (styling)
+  - Vite (build tool)
 
-Make sure you have the following installed on your machine:
+- Backend:
+  - Node.js
+  - Express
+  - OpenAI API
 
-- Node.js
-- npm or yarn
+## Setup
 
-### Frontend Setup (React + Vite)
+1. Clone the repository
+```bash
+git clone [your-repo-url]
+cd [repo-name]
+```
 
-1. Clone the repository to your local machine:
-    ```bash
-    git clone https://github.com/your-username/quizbot.git
-    cd quizbot
-    ```
+2. Install dependencies
+```bash
+# Install backend dependencies
+npm install
 
-2. Install frontend dependencies:
-    ```bash
-    cd frontend
-    npm install
-    ```
+# Install frontend dependencies
+npm install
+```
 
-3. Set up your environment variables:
-    - Create a `.env` file in the `frontend` directory.
-    - Add the OpenAI API key and backend URL (if needed).
+3. Create a `.env` file in the root directory with your OpenAI API key:
+```
+OPENAI_API_KEY=your_api_key_here
+```
 
-    Example:
-    ```env
-    REACT_APP_OPENAI_API_KEY=your_openai_api_key
-    REACT_APP_BACKEND_URL=http://localhost:5000
-    ```
+4. Start the development servers
+```bash
+# Start backend server (port 8000)
+npm run dev
 
-4. Start the development server:
-    ```bash
-    npm run dev
-    ```
+# Start frontend server (port 3000)
+npm run frontend:dev
+```
 
-    Your front-end should now be running at `http://localhost:3000`.
+## Project Structure
 
-### Backend Setup (Express.js)
+```
+├── src/
+│   ├── Chatbot.jsx        # Main chatbot component
+│   └── components/
+│       └── Header.jsx     # Header component
+├── server.js              # Backend server
+├── .env                   # Environment variables
+├── package.json          # Project dependencies
+├── vite.config.js        # Vite configuration
+├── postcss.config.js     # PostCSS configuration
+└── tailwind.config.js    # Tailwind CSS configuration
+```
 
-1. Install backend dependencies:
-    ```bash
-    cd backend
-    npm install
-    ```
+## API Endpoints
 
-2. Set up your environment variables:
-    - Create a `.env` file in the `backend` directory.
-    - Add your OpenAI API key.
-
-    Example:
-    ```env
-    OPENAI_API_KEY=your_openai_api_key
-    ```
-
-3. Start the backend server:
-    ```bash
-    npm start
-    ```
-
-    Your backend should now be running at `http://localhost:5000`.
-
-### Using the App
-
-- When you visit the front-end URL (typically `http://localhost:3000`), it will fetch quiz questions from the backend, which in turn calls the OpenAI API to generate dynamic questions.
-- Answer the questions and get immediate feedback.
-
-## Technologies Used
-
-- **Frontend**:
-    - React
-    - Vite.js
-    - Tailwind CSS
-    - Axios (for API requests)
-
-- **Backend**:
-    - Express.js
-    - OpenAI API (for quiz question generation)
-
-- **Tools**:
-    - OpenAI GPT-3 (to generate quiz questions)
-
-## Environment Variables
-
-You need to set up the following environment variables for both the backend and frontend:
-
-- `OPENAI_API_KEY`: Your OpenAI API key (required for fetching quiz questions).
-- `REACT_APP_OPENAI_API_KEY`: Your OpenAI API key (for frontend access).
-- `REACT_APP_BACKEND_URL`: The backend URL for fetching quiz data.
+- `POST /api/chat`
+  - Generates a new quiz question
+  - Request body: `{ message: "topic", askedQuestions: [] }`
+  - Response: Question object with options and correct answer
 
 ## Contributing
 
-1. Fork the repository.
-2. Create your branch (`git checkout -b feature-name`).
-3. Commit your changes (`git commit -am 'Add feature'`).
-4. Push to the branch (`git push origin feature-name`).
-5. Create a new Pull Request.
+Feel free to submit issues and enhancement requests!
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- OpenAI GPT-3 for powering the quiz questions.
-- Tailwind CSS for the sleek, responsive design.
-- React and Express.js for building a seamless full-stack application.
+MIT License
